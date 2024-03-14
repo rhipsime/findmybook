@@ -7,7 +7,7 @@ const Navbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   return (
-    <header className='py-3 absolute z-10 w-full bg-transparent h-17'>
+    <header className='py-3 absolute z-10 w-full bg-transparent'>
       <nav className='flex justify-between items-center p-4 m-4 '>
         <a href='/'>
           <img
