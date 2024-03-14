@@ -1,9 +1,14 @@
-import React from 'react'
+// Contact.jsx
+import React from 'react';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
   return (
-    <div>Contact</div>
-  )
-}
+    <div>
+      <h2>Contact</h2>
+      <ContactForm /> {/* Render the ContactForm component */}
+    </div>
+  );
+};
 
-export default Contact
+export default Contact;
