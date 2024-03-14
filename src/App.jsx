@@ -1,8 +1,25 @@
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import BookMenu from './components/BookMenu'
+import BookDetails from './components/BookDetails'
+import Favourites from './components/Favourites'
+import Contact from './components/Contact'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
-export default function App() {
+function App() {
   return (
-    <h1 className="text-2xl font-bold underline">
-      Hello world!
-    </h1>
-  )
-}
+     <div> 
+      <Navbar />
+       <Routes>
+         <Route path='/' element={<BookMenu />} />
+         <Route path='/book/:id' element={<BookDetails />} />
+         <Route path='/Favourites' element={<Favourites />} />
+         <Route path='/Contact' element={<Contact />} />
+       </Routes>
+       <Footer />
+     </div>
+  );
+ }
+ 
+ export default App;
