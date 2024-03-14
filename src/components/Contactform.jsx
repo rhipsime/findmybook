@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
@@ -14,17 +14,17 @@ const ContactForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" ref={register({ required: true })} />
+          <input type="text" name="name" id="name" {...register('name', { required: true })} />
           {errors.name && <span className="error-message">This field is required</span>}
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" ref={register({ required: true })} />
+          <input type="email" name="email" id="email" {...register('email', { required: true })} />
           {errors.email && <span className="error-message">This field is required</span>}
         </div>
         <div>
           <label htmlFor="question">Question</label>
-          <textarea name="question" id="question" ref={register} />
+          <textarea name="question" id="question" {...register('question')} />
         </div>
         <button type="submit">Submit</button>
       </form>

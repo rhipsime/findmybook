@@ -1,4 +1,6 @@
+// Contact.jsx
 import React from 'react';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
   return (
@@ -10,4 +12,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
