@@ -2,10 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import fallback from '../assets/fallback.png'
+import { useAppcontext } from './context/Context';
 
 const BookMenu = () => {
   const [books, setBooks] = useState([]);
   const [term, setTerm] = useState('');
+  const {favourites, addTofavourites, removeFromfavourites} = useAppcontext();
+  console.log ('added', favourites);
+  const availableFavourites = (id) =>{
+    const boolean = favourites.some((book) => book.id === id);
+    return boolean;
+    }
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -37,16 +44,22 @@ const BookMenu = () => {
             <img
               src={book.volumeInfo.imageLinks?.thumbnail || fallback}
               alt={book.volumeInfo.title}
-              className='object-scale-down w-48 h-48 cursor-pointer rounded-md'
+              className='object-scale-down w-48 h-48 cursor-pointer rounded-md transition-transform duration-500 ease-in-out transform hover:scale-110'
               onClick={() => openAmazonPage(book.volumeInfo.authors)}
               onError={(e) => {
                 e.target.src = fallback;
               }}
             />
             <div className="flex justify-center">
-              <button className="mt-2 bg-orange-500 hover:bg-blue-400 text-black font-bold py-2 px-4 rounded">
-                Add to Favourites
-              </button>
+              {
+                availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}
+                  className="mt-2 bg-black text-white font-bold py-2 px-4 rounded">Remove from Favourites</button> :
+                  <button onClick={() => addTofavourites(book)}
+                    className="mt-2 bg-orange-500 hover:bg-blue-400 text-black font-bold py-2 px-4 rounded">
+                    Add to Favourites
+                  </button>
+              }
+
             </div>
           </div>
         ))}
