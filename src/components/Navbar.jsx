@@ -8,7 +8,11 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 py-8">
+    <div className="flex justify-between items-center border-b border-gray-400 py-8 pe-8 bg-cyan-900" 
+    // style={{
+    //   backgroundColor: "blue"
+    // }}
+    >
       <a href="/">
         <img
           src={logo}
@@ -48,13 +52,13 @@ const Navbar = () => {
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/about'>-</Link>
+                <Link to='/about'>About us</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/portfolio'>Portfolio</Link>
+                <Link to='/myFavourites'>My Favourites</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/contact'>Contact</Link>
+                <Link to='/contactUs'>Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -62,13 +66,13 @@ const Navbar = () => {
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
           <li>
-            <Link to='/about'>About</Link>
+            <Link to='/about'>About Us</Link>
           </li>
           <li>
-            <Link to='/portfolio'>Portfolio</Link>
+            <Link to='/myFavourites'>My Favourites</Link>
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <Link to='/contactUs'>Contact Us</Link>
           </li>
         </ul>
       </nav>
