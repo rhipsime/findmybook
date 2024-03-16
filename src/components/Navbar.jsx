@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_black.png'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -8,15 +8,8 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 py-8">
-      <a href="/">
-        <img
-          src={logo}
-          alt='logo'
-          width={80}
-          height={80}
-        />
-      </a>
+    <div className="flex items-center justify-between px-1 py-2">
+      <a href="/"><img src={logo} alt='logo' width={180} height={80}/></a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
