@@ -8,7 +8,11 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center border-b border-gray-400 py-8 pe-8">
+    <div className="flex justify-between items-center border-b border-gray-400 py-8 pe-8 bg-cyan-900" 
+    // style={{
+    //   backgroundColor: "blue"
+    // }}
+    >
       <a href="/">
         <img
           src={logo}
