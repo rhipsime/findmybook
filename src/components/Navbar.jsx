@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_black.png'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -8,25 +8,15 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center border-b border-gray-400 py-8 pe-8 bg-cyan-900" 
+    <div className="flex justify-between items-center py-2 pe-8 bg-cyan-900" 
     // style={{
     //   backgroundColor: "blue"
     // }}
     >
-      <a href="/">
-        <img
-          src={logo}
-          alt='logo'
-          width={80}
-          height={80}
-        />
-      </a>
+      <a href="/"><img src={logo} alt='logo' width={180} height={80}/></a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
-          <div
-            className="HAMBURGER-ICON space-y-2"
-            onClick={handleClick}
-          >
+          <div className="HAMBURGER-ICON space-y-2" onClick={handleClick}>
             {click ? (<FaTimes size={30} style={{ color: 'black' }} />) :
               (<FaBars size={30} style={{ color: 'black' }} />)
             }
