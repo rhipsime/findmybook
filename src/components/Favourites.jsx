@@ -8,6 +8,21 @@ const Favourites = () => {
     const boolean = favourites.some((book) => book.id === id);
     return boolean;
     }
+    const openAmazonUKPage = (book) => {
+      const author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : '';
+      let isbn = '';
+      if (book.volumeInfo.industryIdentifiers) {
+          for (let identifier of book.volumeInfo.industryIdentifiers) {
+              if (identifier.type === 'ISBN_13' || identifier.type === 'ISBN_10') {
+                  isbn = identifier.identifier;
+                  break; 
+              }
+          }
+      }
+      const title = book.volumeInfo.title ? book.volumeInfo.title : '';
+      const amazonUKUrl = `https://www.amazon.co.uk/${encodeURIComponent(title)}-${encodeURIComponent(author)}/dp/${encodeURIComponent(isbn)}`;
+      window.open(amazonUKUrl, '_blank');
+  };
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg items-center justify-center">
     {favourites.length > 0 ? favourites.map((book) => (
@@ -16,11 +31,13 @@ const Favourites = () => {
           src={book.volumeInfo.imageLinks?.thumbnail || fallback}
           alt={book.volumeInfo.title}
           className='object-scale-down w-48 h-48 cursor-pointer rounded-md transition-transform duration-500 ease-in-out transform hover:scale-110'
-          onClick={() => openAmazonPage(book.volumeInfo.authors)}
+          onClick={() => openAmazonUKPage(book)}
           onError={(e) => {
             e.target.src = fallback;
           }}
         />
+        <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
+        <p className='text-sm font-bold mt-1font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
         <div className="flex justify-center">
           {
             availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}
