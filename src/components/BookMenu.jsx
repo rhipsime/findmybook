@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import fallback from '../assets/fallback.png'
 import { useAppcontext } from './context/Context';
+import HeroSection from './HeroSection';
 
 const BookMenu = () => {
   const [books, setBooks] = useState([]);
@@ -32,12 +33,12 @@ const BookMenu = () => {
 
     return (
     <div className="container mx-auto p-4">
-      <input
+      {/* <input
         type="text"
         placeholder="Search books..."
         onChange={(e) => setTerm(e.target.value)}
         className="w-full p-2 border-4 border-orange-500 rounded-md"
-      />
+      /> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg">
         {books.map((book) => (
           <div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center">

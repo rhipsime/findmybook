@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo_black.png'
+import logo from '../assets/findMyBookLogoBlk.png'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -8,12 +8,12 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center py-2 pe-8 bg-cyan-900" 
+    <div className="flex justify-between items-center py-2 pe-8 bg-[#5aa6bf]-900" 
     // style={{
     //   backgroundColor: "blue"
     // }}
     >
-      <a href="/"><img src={logo} alt='logo' width={180} height={80}/></a>
+      <a href="/"><img src={logo} alt='logo' width={250} height={80}/></a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div className="HAMBURGER-ICON space-y-2" onClick={handleClick}>
@@ -28,7 +28,7 @@ const Navbar = () => {
               onClick={handleClick}
             >
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="h-8 w-8 text-black-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
