@@ -25,12 +25,23 @@ const BookMenu = () => {
     fetchBooks();
   }, [term]);
 
-  const openAmazonPage = (bookauthors) => {
-    const amazonUrl = `https://www.amazon.co.uk/${bookauthors}`;
-    window.open(amazonUrl, '_blank');
-  };
-
-    return (
+  const openAmazonUKPage = (book) => {
+    const author = book.volumeInfo.authors ? book.volumeInfo.authors[0] : '';
+    let isbn = '';
+    if (book.volumeInfo.industryIdentifiers) {
+        for (let identifier of book.volumeInfo.industryIdentifiers) {
+            if (identifier.type === 'ISBN_13' || identifier.type === 'ISBN_10') {
+                isbn = identifier.identifier;
+                break; 
+            }
+        }
+    }
+    const title = book.volumeInfo.title ? book.volumeInfo.title : '';
+    const amazonUKUrl = `https://www.amazon.co.uk/${encodeURIComponent(title)}-${encodeURIComponent(author)}/dp/${encodeURIComponent(isbn)}`;
+    window.open(amazonUKUrl, '_blank');
+};
+ 
+  return (
     <div className="container mx-auto p-4">
       <input
         type="text"
@@ -45,11 +56,13 @@ const BookMenu = () => {
               src={book.volumeInfo.imageLinks?.thumbnail || fallback}
               alt={book.volumeInfo.title}
               className='object-scale-down w-48 h-48 cursor-pointer rounded-md transition-transform duration-500 ease-in-out transform hover:scale-110'
-              onClick={() => openAmazonPage(book.volumeInfo.authors)}
+              onClick={() => openAmazonUKPage(book)}
               onError={(e) => {
                 e.target.src = fallback;
               }}
             />
+            <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
+            <p className='text-sm font-bold mt-1font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
             <div className="flex justify-center">
               {
                 availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}
