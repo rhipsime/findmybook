@@ -16,7 +16,7 @@ const BookMenu = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + term + '&key=AIzaSyDaJaU2_8QkMUfXJuAnrBOz_O5N8D_hvw4' + '&maxResults=40')
+        const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + term + '&key=AIzaSyBsu-HEZ9BEMAjRQP2r4Qx9Q24dn_-MyXI' + '&maxResults=40')
         setBooks(response.data.items);
       } catch (error) {
         console.error('Error fetching data: ', error);
