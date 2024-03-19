@@ -1,8 +1,11 @@
-import React from 'react';
+import { useState } from "react";
+import React from 'react'; 
+
 
 
 
 const SearchBar = () => {
+  const [term, setTerm] = useState('');
   return (
     <div className="flex justify-left">
       <input className="py-4 px-40 rounded-l-lg border-t mr-0 border-l text-gray-800 border-white-200 bg-white"
