@@ -8,7 +8,7 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center py-2 pe-8 bg-[#5aa6bf]-900" 
+    <div className="flex justify-between items-center py-2 pe-8 bg-white-900" 
     // style={{
     //   backgroundColor: "blue"
     // }}
@@ -42,13 +42,13 @@ const Navbar = () => {
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/about'>About us</Link>
+                <Link to="/about">About us</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/myFavourites'>My Favourites</Link>
+                <Link to="/Favourites">My Favourites</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/contactUs'>Contact Us</Link>
+                <Link to="/Contact">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -59,10 +59,10 @@ const Navbar = () => {
             <Link to='/about'>About Us</Link>
           </li>
           <li>
-            <Link to='/myFavourites'>My Favourites</Link>
+            <Link to='/Favourites'>My Favourites</Link>
           </li>
           <li>
-            <Link to='/contactUs'>Contact Us</Link>
+            <Link to='/Contact'>Contact Us</Link>
           </li>
         </ul>
       </nav>
@@ -90,3 +90,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

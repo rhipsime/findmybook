@@ -37,7 +37,7 @@ const Favourites = () => {
           }}
         />
         <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
-        <p className='text-sm font-bold mt-1font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
+        <p className='text-sm font-bold mt-1 font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
         <div className="flex justify-center">
           {
             availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}

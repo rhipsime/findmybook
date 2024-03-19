@@ -9,13 +9,13 @@ import BookMenu from './components/BookMenu'
 
 function App() {
   return (
-     <div> 
+     <div className="bg-[#35a6be]">  
       <Navbar />
       <HeroSection />
        <Routes>
-         <Route path='/' element={<BookMenu />} />
-         <Route path='/Favourites' element={<Favourites />} />
-         <Route path='/Contact' element={<Contact />} />
+         <Route path="/" element={<BookMenu />} />
+         <Route path="/Favourites" element={<Favourites />} />
+         <Route path="/Contact" element={<Contact />} />
        </Routes>
        <Footer />
      </div>
