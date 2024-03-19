@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import fallback from '../assets/fallback.png'
@@ -42,14 +41,14 @@ const BookMenu = () => {
 };
  
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-0 mt-0 bg-[#35a6be]">
       <input
         type="text"
         placeholder="Search books..."
         onChange={(e) => setTerm(e.target.value)}
         className="w-full p-2 border-4 border-orange-500 rounded-md"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg bg-[#35a6be]">
         {books.map((book) => (
           <div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center">
             <img
@@ -62,7 +61,7 @@ const BookMenu = () => {
               }}
             />
             <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
-            <p className='text-sm font-bold mt-1font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
+            <p className='text-sm font-bold mt-1 font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
             <div className="flex justify-center">
               {
                 availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}

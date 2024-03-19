@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo_black.png'
+import logo from '../assets/findMyBookLogoBlk.png'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -8,12 +8,12 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center py-2 pe-8 bg-cyan-900" 
+    <div className="flex justify-between items-center py-2 pe-8 bg-white-900" 
     // style={{
     //   backgroundColor: "blue"
     // }}
     >
-      <a href="/"><img src={logo} alt='logo' width={180} height={80}/></a>
+      <a href="/"><img src={logo} alt='logo' width={250} height={80}/></a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div className="HAMBURGER-ICON space-y-2" onClick={handleClick}>
@@ -28,7 +28,7 @@ const Navbar = () => {
               onClick={handleClick}
             >
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="h-8 w-8 text-black-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -42,13 +42,13 @@ const Navbar = () => {
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/about'>About us</Link>
+                <Link to="/about">About us</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/myFavourites'>My Favourites</Link>
+                <Link to="/Favourites">My Favourites</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/contactUs'>Contact Us</Link>
+                <Link to="/Contact">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -59,10 +59,10 @@ const Navbar = () => {
             <Link to='/about'>About Us</Link>
           </li>
           <li>
-            <Link to='/myFavourites'>My Favourites</Link>
+            <Link to='/Favourites'>My Favourites</Link>
           </li>
           <li>
-            <Link to='/contactUs'>Contact Us</Link>
+            <Link to='/Contact'>Contact Us</Link>
           </li>
         </ul>
       </nav>
@@ -90,3 +90,4 @@ const Navbar = () => {
 }
 
 export default Navbar;
+

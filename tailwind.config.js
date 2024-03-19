@@ -9,7 +9,10 @@ export default {
       palanquin: ['Palanquin', 'sans-serif'],
       montserrat: ['Montserrat', 'sans-serif'],
     }
+    },
   },
-  },
+
+
+
   plugins: [],
 }

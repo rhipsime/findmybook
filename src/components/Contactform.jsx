@@ -36,7 +36,7 @@ const ContactForm = () => {
           <label htmlFor="question" className="block font-semibold mb-1">Question</label>
           <textarea name="question" id="question" {...register('question')} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500" autoComplete="off" />
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+        <button type="submit" className="bg-[#fa5e10] text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
       </form>
     </div>
   );
