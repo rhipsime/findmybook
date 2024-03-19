@@ -8,12 +8,8 @@ const Navbar = () => {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="flex justify-between items-center py-2 pe-8 bg-white-900" 
-    // style={{
-    //   backgroundColor: "blue"
-    // }}
-    >
-      <a href="/"><img src={logo} alt='logo' width={250} height={80}/></a>
+    <div className="flex justify-between items-center py-2 pe-8 bg-white">
+      <a href="/"><img src={logo} alt='logo' className='mx-auto' height={300} width={200}/></a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div className="HAMBURGER-ICON space-y-2" onClick={handleClick}>
@@ -42,7 +38,7 @@ const Navbar = () => {
             </div>
             <ul className="flex flex-col items-center justify-between min-h-[250px]">
               <li className="border-b border-gray-400 my-8 uppercase">
-                <Link to='/home'>Home</Link>
+                <Link to='/'>Home</Link>
               </li>
               <li className="border-b border-gray-400 my-8 uppercase">
                 <Link to="/Favourites">My Favourites</Link>
@@ -56,7 +52,7 @@ const Navbar = () => {
 
         <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
           <li>
-            <Link to='/home'>Home</Link>
+            <Link to='/'>Home</Link>
           </li>
           <li>
             <Link to='/Favourites'>My Favourites</Link>
