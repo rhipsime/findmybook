@@ -11,7 +11,8 @@ const BookMenu = () => {
   const availableFavourites = (id) =>{
     const boolean = favourites.some((book) => book.id === id);
     return boolean;
-    }
+  }
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -38,8 +39,8 @@ const BookMenu = () => {
     const title = book.volumeInfo.title ? book.volumeInfo.title : '';
     const amazonUKUrl = `https://www.amazon.co.uk/${encodeURIComponent(title)}-${encodeURIComponent(author)}/dp/${encodeURIComponent(isbn)}`;
     window.open(amazonUKUrl, '_blank');
-};
- 
+  };
+
   return (
     <div className="container mx-auto p-0 mt-0 bg-[#35a6be]">
       <input
@@ -50,18 +51,25 @@ const BookMenu = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg bg-[#35a6be]">
         {books.map((book) => (
-          <div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center">
-            <img
-              src={book.volumeInfo.imageLinks?.thumbnail || fallback}
-              alt={book.volumeInfo.title}
-              className='object-scale-down w-48 h-48 cursor-pointer rounded-md transition-transform duration-500 ease-in-out transform hover:scale-110'
-              onClick={() => openAmazonUKPage(book)}
-              onError={(e) => {
-                e.target.src = fallback;
-              }}
-            />
-            <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
-            <p className='text-sm font-bold mt-1 font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
+          <div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center flip-card">
+            <div className="flip-card-inner">
+              <div className="flip-card-front">
+                <img
+                  src={book.volumeInfo.imageLinks?.thumbnail || fallback}
+                  alt={book.volumeInfo.title}
+                  className='object-scale-down w-48 h-48 cursor-pointer rounded-md transition-transform duration-500 ease-in-out transform hover:scale-110'
+                  onClick={() => openAmazonUKPage(book)}
+                  onError={(e) => {
+                    e.target.src = fallback;
+                  }}
+                />
+                <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
+                <p className='text-sm font-bold mt-1 font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
+              </div>
+              <div className="flip-card-back">
+                <p>{book.volumeInfo.description}</p>
+              </div>
+            </div>
             <div className="flex justify-center">
               {
                 availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}
@@ -79,4 +87,6 @@ const BookMenu = () => {
     </div>
   );
 };
+
 export default BookMenu;
+
