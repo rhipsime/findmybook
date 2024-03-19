@@ -5,9 +5,10 @@ import ContactForm from './Contactform';
 const Contact = () => {
   return (
     <div>
-      <h2>Contact</h2>
+      <h2 className="text-white text-2xl text-center mb-3">Get In Touch</h2>
       <ContactForm /> {/* Render the ContactForm component */}
     </div>
   );
 };
-cd
+
+export default Contact;
