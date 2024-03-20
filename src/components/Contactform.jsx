@@ -19,7 +19,7 @@ const ContactForm = () => {
       <h2 className="text-2xl font-semibold mb-6">Contact</h2>
       {/* Render the success message */}
       {isSubmitted ? (
-        <p className="text-green-500 mb-4">Your message has been recorded. Thank you!</p>
+        <p className="text-green-500 mb-4">Your message has been sent. Thank you!</p>
       ) : null}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
