@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
-import { useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext(null);
 
@@ -13,34 +12,32 @@ export const useAppcontext = () => {
 
 const AppContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
-  
-  useEffect(() => { 
-    if (localStorage.getItem ("favourites")=== null) 
-    // We want to check on page load the items that are in local storage under favourites key. 
-    // If there is something in local storage we want to set it to favourites. If there is nothing - we want it to set to the empty array. 
-    setFavourites([]);
 
+  useEffect(() => {
+    const storedFavourites = JSON.parse(localStorage.getItem("favourites"));
+    if (storedFavourites) {
+      setFavourites(storedFavourites);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify(favourites));
   }, [favourites]);
 
   const addTofavourites = (book) => {
-    console.log(book)
-    setFavourites([...favourites, book])
+    setFavourites((prevFavourites) => [...prevFavourites, book]);
+  };
 
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-
-  }
   const removeFromfavourites = (id) => {
-    const oldFavourites = [...favourites];
-    const newFavourites = oldFavourites.filter((book) => book.id !== id);
-    setFavourites(newFavourites);
-  }
+    setFavourites((prevFavourites) => prevFavourites.filter((book) => book.id !== id));
+  };
 
   return (
     <AppContext.Provider value={{ favourites, addTofavourites, removeFromfavourites }}>
       {children}
     </AppContext.Provider>
-  )
-}
+  );
+};
 
 export default AppContextProvider;
+
