@@ -3,7 +3,7 @@ import logo from '../assets/findMyBookLogoBlk.png'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
-const Navbar = () => {
+const Navbar = ({ onContactClick }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -58,7 +58,7 @@ const Navbar = () => {
             <Link to='/Favourites'>My Favourites</Link>
           </li>
           <li>
-            <Link to='/Contact'>Contact Us</Link>
+            <Link to='/Contact' onClick={onContactClick}>Contact Us</Link>
           </li>
         </ul>
       </nav>
