@@ -51,9 +51,8 @@ const BookMenu = () => {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg bg-[#35a6be]">
         {books.map((book) => (
-          <div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
+          < div key={book.id} className="bg-white shadow-md rounded-md p-4 flex flex-col items-center">
+            
                 <img
                   src={book.volumeInfo.imageLinks?.thumbnail || fallback}
                   alt={book.volumeInfo.title}
@@ -65,12 +64,7 @@ const BookMenu = () => {
                 />
                 <h3 className='text-lg font-bold mt-2 font-Palanquin'>{book.volumeInfo.title}</h3>
                 <p className='text-sm font-bold mt-1 font-Palanquin'>By: {book.volumeInfo.authors?.join(', ')}</p>
-              </div>
-              <div className="flip-card-back">
-                <p>{book.volumeInfo.description}</p>
-              </div>
-            </div>
-            <div className="flex justify-center">
+               <div className="flex justify-center">
               {
                 availableFavourites(book.id) ? <button onClick={() => removeFromfavourites(book.id)}
                   className="mt-2 bg-black text-white font-bold py-2 px-4 rounded">Remove from Favourites</button> :
