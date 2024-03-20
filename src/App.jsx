@@ -5,13 +5,16 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
+import BookMenu from './components/BookMenu';
 
 function App() {
  return (
     <div className="bg-[#35a6be] min-h-screen">
       <Navbar onContactClick={HeroSection.handleContactClick} />
       <HeroSection />
+      {/* <BookMenu /> */}
       <Routes>
+        <Route path='/' element={<BookMenu />}/>
         <Route path='/Favourites' element={<Favourites />} />
         <Route path='/Contact' element={<Contact />} />
       </Routes>

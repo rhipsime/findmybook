@@ -14,24 +14,24 @@ const HeroSection = () => {
   };
  
   return (
-     <div className="relative h-screen bg-cover bg-center pb-0 flex flex-col md:flex-row items-center justify-center">
+     <>
        <div className="md:w-1/2 lg:w-1/3">
-         <img src={heroImage} alt="Hero Image" className="object-scale-down w-full h-full" />
+         <img src={heroImage} alt="Hero Image" className="object-scale-down w-3/4 h-3/4" />
        </div>
        <div className="text-center mb-5 z-10 items-center justify-center md:ml-8">
          <span className="text-4xl text-white mb-4">Find the book. </span>  
          <span className="text-4xl text-[#ffb22e] mb-4">See the book. </span>
          <span className="text-4xl text-white mb-4">Buy the book. </span>
-         <div className="mt-8">
+         {/* <div className="mt-8">
            <BookMenu />
-         </div>
+         </div> */}
        </div>
        {showContactForm && (
          <div className="md:w-1/2 lg:w-1/3">
            <ContactForm />
          </div>
        )}
-     </div>
+     </>
   );
  }
 export default HeroSection

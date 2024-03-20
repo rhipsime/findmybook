@@ -15,7 +15,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-8 bg-white shadow-md rounded-md">
+    <div className="max-w-md mx-auto p-5 bg-white shadow-md rounded-md">
       <h2 className="text-2xl font-semibold mb-6">Contact</h2>
       {/* Render the success message */}
       {isSubmitted ? (
