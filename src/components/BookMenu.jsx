@@ -16,7 +16,7 @@ const BookMenu = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + term + '&key=AIzaSyBsu-HEZ9BEMAjRQP2r4Qx9Q24dn_-MyXI' + '&maxResults=40')
+        const response = await axios.get('https://www.googleapis.com/books/v1/volumes?q=' + term + '&key=AIzaSyB57483pKOr3yexUpgasNRgSYHsPCKgpCo' + '&maxResults=40')
         setBooks(response.data.items);
       } catch (error) {
         console.error('Error fetching data: ', error);
@@ -43,11 +43,11 @@ const BookMenu = () => {
 
   return (
     <div className="container mx-auto p-0 mt-0 bg-[#35a6be]">
-      <input
+      <input 
         type="text"
         placeholder="Search books..."
         onChange={(e) => setTerm(e.target.value)}
-        className="w-full p-2 border-4 border-orange-500 rounded-md"
+        className="w-1/2 p-2 border-4 absolute-center mb-5 justify-center md:ml-8 border-orange-500 rounded-md"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-4 shadow-lg bg-[#35a6be]">
         {books.map((book) => (
@@ -83,4 +83,3 @@ const BookMenu = () => {
 };
 
 export default BookMenu;
-
